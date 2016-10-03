@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+DIRECTORIES=$(ls)
+for directory in $DIRECTORIES; do
+  if [[ -d "$directory/.git" ]]; then
+    directory_label="[$directory]"
+    echo -e "\e[1;34m$directory_label\e[0m"
+    git -C $directory "$@" || :
+  fi
+done
