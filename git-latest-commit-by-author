@@ -2,6 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# Lists the latest commit by every author in the project.
 authors="$(git log |grep --null -o "<[^<>]*>" | sort -u)"
 for i in $authors; do
   regex="<(.*)>"

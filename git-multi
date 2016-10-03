@@ -2,6 +2,9 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# Run git commands across multiple repositories.
+# This is designed to be run in a directory that has multiple
+# git repositories in subdirectories.
 DIRECTORIES=$(ls)
 for directory in $DIRECTORIES; do
   if [[ -d "$directory/.git" ]]; then

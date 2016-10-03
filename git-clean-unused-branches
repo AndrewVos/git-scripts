@@ -2,4 +2,5 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# Delete any branches that have been merged.
 git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
